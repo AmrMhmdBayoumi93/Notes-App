@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class NoteItem extends StatelessWidget {
-  
-  const NoteItem({super.key});
+    final Color color;
+  const NoteItem({super.key, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class NoteItem extends StatelessWidget {
         
       
             //              0xffE7E895
-        color:const Color(0xffFFCD79),
+        color: color,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -27,15 +27,18 @@ class NoteItem extends StatelessWidget {
 
           // dont use padding of ListTile()
          contentPadding: EdgeInsets.zero,
-          title: const Text('Flutter tips',
-            style: TextStyle( 
-              color: Colors.black,
-              fontSize: 26  ,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'Poppins',
-            )),
+          title: Padding(
+            padding: const EdgeInsets.only(left: 12.0 ,bottom:12, ),
+            child: const Text('Flutter tips',
+              style: TextStyle( 
+                color: Colors.black,
+                fontSize: 26  ,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Poppins',
+              )),
+          ),
           subtitle: Padding(
-            padding: const EdgeInsets.only(top :18.0),
+            padding: const EdgeInsets.only(top :1.0),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 12),
               child: Text('Build your Career with Tharwat Samy',
@@ -51,7 +54,7 @@ class NoteItem extends StatelessWidget {
           trailing: IconButton(
             onPressed: (){
 
-            },
+            },         //Icon( Icons.delete,)
             icon: const Icon(FontAwesomeIcons.trash  ,
             size: 28,
             color: Colors.black,),
@@ -60,7 +63,7 @@ class NoteItem extends StatelessWidget {
 
        
         Padding(
-          padding: const EdgeInsets.only(right: 18.0 , top:24,bottom: 24,                   
+          padding: const EdgeInsets.only(right: 16.0 , top:12,bottom: 12, left: 12,                 
               ),
           child: Text('May 21, 2024',
            style: TextStyle( 
