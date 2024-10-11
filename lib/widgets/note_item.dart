@@ -12,7 +12,7 @@ class NoteItem extends StatelessWidget {
           // no width or height for this Container  for dynamic size
           // u can use just Padding fo sapce or padding attribute in Container()
 
-      padding:EdgeInsets.only(left:16,right: 12 ,top: 16 , bottom: 16) ,
+      padding:const EdgeInsets.only(left:16,right: 12 ,top: 16 , bottom: 16) ,
       decoration: BoxDecoration(
         
       
@@ -27,9 +27,9 @@ class NoteItem extends StatelessWidget {
 
           // dont use padding of ListTile()
          contentPadding: EdgeInsets.zero,
-          title: Padding(
-            padding: const EdgeInsets.only(left: 12.0 ,bottom:12, ),
-            child: const Text('Flutter tips',
+          title: const Padding(
+            padding: EdgeInsets.only(left: 12.0 ,bottom:12, ),
+            child: Text('Flutter tips',
               style: TextStyle( 
                 color: Colors.black,
                 fontSize: 26  ,
