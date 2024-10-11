@@ -8,6 +8,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
+      // width :double.infinity,
       height: 55,
 
     decoration: BoxDecoration( 
