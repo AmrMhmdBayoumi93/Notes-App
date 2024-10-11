@@ -36,14 +36,14 @@ class EditNoteViewBody extends StatelessWidget {
  SizedBox(height: 20,),
 
 
- 
+
  CustomTextFiled(
   labelText: 'Content',
    hintText: 'Content',
    maxLines: 5,
    ),
 
-
+ 
 
 
 
