@@ -3,7 +3,7 @@
 class CustomSearchIcon extends StatelessWidget {
   final IconData icon;
 
-   const CustomSearchIcon({required this.icon});
+   const CustomSearchIcon({super.key, required this.icon});
  
    @override
    Widget build(BuildContext context) {

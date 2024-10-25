@@ -6,19 +6,19 @@ class CustomAppbar extends StatelessWidget {
   //  note that final var because stl Widget and Const Constructor
   final String title; 
   final IconData icon;
-  const CustomAppbar({required this.title, required this.icon});
+  const CustomAppbar({super.key, required this.title, required this.icon});
 
   @override
   Widget build(BuildContext context) {
     return  Row( 
       children: [
         Text(title, 
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 28,
             color: Colors.white,
           )
           ),
-          Spacer( 
+          const Spacer( 
                  
           ),
 

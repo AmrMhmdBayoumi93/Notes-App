@@ -8,13 +8,21 @@ class CustomTextFiled extends StatelessWidget {
   final String? hintText;
   final int maxLines; 
   
+  final void Function(String?)? onSaved;
+  final String? Function(String?)? validator;
   const CustomTextFiled({
-    super.key, required this.labelText,required this.hintText,  this.maxLines=1,
+    super.key, required this.labelText,
+    required this.hintText,  this.maxLines=1,
+      this.onSaved,this.validator,
+      
   });
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      onSaved: onSaved,
+      validator: validator,
+
       maxLines: maxLines,
       
     style:const TextStyle(fontSize: 24),
