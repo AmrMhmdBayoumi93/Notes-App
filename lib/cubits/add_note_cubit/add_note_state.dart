@@ -7,15 +7,15 @@ class AddNoteInitial extends AddNoteState {}
 class AddNoteLoading extends AddNoteState {}
 
 class AddNoteSuccess extends AddNoteState {
-  final String message;
+  final String successMessage;
 
-   AddNoteSuccess(this.message);
+   AddNoteSuccess(this.successMessage);
    
 }
 
 class AddNoteFailure extends AddNoteState {
-  final String message;
+  final String errorMessage;
 
-   AddNoteFailure(this.message);
+   AddNoteFailure(this.errorMessage);
 
 }
