@@ -1,5 +1,6 @@
 
-abstract class AddNoteState {}
+abstract class AddNoteState {}       // parent State
+
 
 class AddNoteInitial extends AddNoteState {}
 

@@ -6,16 +6,17 @@ import 'package:notesapp/constants.dart';
 import 'package:notesapp/cubits/add_note_cubit/add_note_state.dart';
 import 'package:notesapp/models/note_model.dart';
 
-  class AddNoteCubit extends Cubit<AddNoteState>{
+  class AddNoteCubit extends Cubit<AddNoteState>{   // <Parent State>
     AddNoteCubit() : super(AddNoteInitial());
 
   void addNote(NoteModel note){
          
-         emit(AddNoteLoading());
+    emit(AddNoteLoading());
 
          try {
-  var box= Hive.box<NoteModel>(kNotesBox);
-  box.add(note);
+
+   var box= Hive.box<NoteModel>(kNotesBox);
+   box.add(note);
   emit(AddNoteSuccess('Successfully Added Note'));
 
   } 
@@ -25,7 +26,7 @@ import 'package:notesapp/models/note_model.dart';
 
 
 
-                     }
+      }               
 
 
 
