@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,66 +13,66 @@ class AddNoteBottomSheet extends StatelessWidget {
   
     @override
     Widget build(BuildContext context) {
-      return  SingleChildScrollView(
-        child: SizedBox(
-        
-          // width: double.infinity,
-          width: MediaQuery.of(context).size.width,
-                child:  Padding(
-        
-                  padding: EdgeInsets.symmetric(horizontal: 16.0),
-                  child:
-
-                    //extract  Column AddNoteForm () is done
-                  
-                   BlocConsumer<AddNoteCubit, AddNoteState>(
-                  
-                     builder: (context, state) {
-                       return ModalProgressHUD(
-                        inAsyncCall: state is AddNoteLoading?true:false,
-
-                       child: AddNoteForm());
-                     },
-
-                     ////  ////      ////  ////  ////  ////  ////
-                     listener: (context, state) {
-                      
-                       //Handle fail state
-                      if (state is AddNoteFailure){
-                        print('failed ${state.errorMessage}');
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            
-                            content: Text('${state.errorMessage}'))
-                        );
-                      }
+      return  SizedBox(
+      
+        // width: double.infinity,
+        width: MediaQuery.of(context).size.width,
+              child:  Padding(
+      
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child:
+      
+                  //extract  Column AddNoteForm () is done
+                //BlocConsumer or BlocBuilder
+                 BlocConsumer<AddNoteCubit, AddNoteState>(
+                
+                   builder: (context, state) {
+                     return ModalProgressHUD(
+                      inAsyncCall: state is AddNoteLoading?true:false,
+                           
+                     child: SingleChildScrollView(
+                      child: AddNoteForm()));
+                   },
+       
+                   ////  ////      ////  ////  ////  ////  ////
+                   listener: (context, state) {
                     
-                              ////  ////  ////  ////  ////  ////
-
-
-                       //success state
-                       if(state is AddNoteSuccess){
-
-                         Navigator.pop(context);
+                     //Handle fail state
+                    if (state is AddNoteFailure){
+                      print('failed ${state.errorMessage}');
+                       log('success ${state.errorMessage}');
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
                           
-                          ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('${state.successMessage}'))
-                        );
-                       }
-
-
-                   
-                   
-                     },
-                    
-                   ),
-
-
-                   
-                ),
-         ),
-      );
+                          content: Text('${state.errorMessage}'))
+                      );
+                    }
+                  
+                            ////  ////  ////  ////  ////  ////
+      
+      
+                     //success state
+                     if(state is AddNoteSuccess){
+      
+                       Navigator.pop(context);
+                        log('success ${state.successMessage}');
+                        ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('${state.successMessage}'))
+                      );
+                     }
+      
+      
+                 
+                 
+                   },
+                  
+                 ),
+      
+      
+                 
+              ),
+       );
 
 
 

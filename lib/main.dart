@@ -6,19 +6,17 @@ import 'package:notesapp/models/note_model.dart';
 import 'package:notesapp/simple_bloc_observer.dart';
 import 'package:notesapp/views/notes_view.dart';
   import 'package:hive_flutter/hive_flutter.dart';
-void main() async{
-
-    //  hive_flutter Package
-    
+void main() async {
+  // Initialize Hive and register the adapter
   await Hive.initFlutter();
-  await Hive.openBox(kNotesBox);
-    Hive.registerAdapter(NoteModelAdapter());
-    
-    Bloc.observer=SimpleBlocObserver();
-       
-   
-   runApp(const NotesApp());
+  Hive.registerAdapter(NoteModelAdapter()); // Register the adapter first
 
+  // Now open the box
+  await Hive.openBox<NoteModel>(kNotesBox);
+
+  Bloc.observer = SimpleBlocObserver();
+
+  runApp(const NotesApp());
 }
 
 class NotesApp extends StatelessWidget {

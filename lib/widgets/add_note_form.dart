@@ -1,5 +1,10 @@
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notesapp/cubits/add_note_cubit/add_note_cubit.dart';
+import 'package:notesapp/models/note_model.dart';
 import 'package:notesapp/widgets/custom_button.dart';
 import 'package:notesapp/widgets/custom_textfield.dart';
 
@@ -19,7 +24,8 @@ class AddNoteForm extends StatefulWidget {
 class _AddNoteFormState extends State<AddNoteForm> {
   @override
 
-
+String? title;
+  String? subTitle;
  final GlobalKey<FormState> formKey=GlobalKey();
  
   AutovalidateMode autoValidateMode=AutovalidateMode.disabled;
@@ -87,11 +93,40 @@ class _AddNoteFormState extends State<AddNoteForm> {
            
             CustomButton(
               onTap: (){
+
                if(formKey.currentState!.validate()){
                 formKey.currentState!.save();
-               } else{
-                autoValidateMode =AutovalidateMode.always;
+
+ log('before make NullCheck');
+
+              // Null Check: Before creating the NoteModel, check that both title and subTitle are not null.
+              
+                  log('Null check OK');
+
+              var noteModel=NoteModel(
+                title: title?? '',         // handle nulll
+                subTitle: subTitle?? '', // handle nulll
+                date: DateTime.now().toString(),
+                color: Colors.blue.value,
                 
+                );
+
+                log('we have create model OK');
+                 log('title is ${noteModel.title}');
+
+                 log('title is ${noteModel.subTitle}');
+ 
+                // trigger AddNoteCubit
+                  BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+             log('trigger AddNoteCubit OK') ;
+
+                }
+
+
+
+                else{
+                autoValidateMode =AutovalidateMode.always;
+
                 setState(() {
                   
                 });
