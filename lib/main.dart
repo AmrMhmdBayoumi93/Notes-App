@@ -24,29 +24,25 @@ class NotesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<AddNoteCubit>(
-          create:(BuildContext context) => AddNoteCubit()
-        ),
-      
-
-
-      ],
-      
-      
-      child: MaterialApp(
-          debugShowCheckedModeBanner: false ,
-         // theme:ThemeData.dark(),
-          theme: ThemeData(
-            brightness: Brightness.dark,
-            fontFamily: 'Poppins',
-            ),
     
-          home: const NotesView(),
+    //4- Provide the AddNoteCubit to the widget tree by MultiBlocProvider() or BlocProvider()
+      // or use BlocProvider () in the Screen where u will use the AddNoteCubit() cubit
+      // to save Resources
+      
+      // we will make BlocProvider() in AddNoteBottomSheet saving for resources
+
+
+    return MaterialApp(
+        debugShowCheckedModeBanner: false ,
+       // theme:ThemeData.dark(),
+        theme: ThemeData(
+          brightness: Brightness.dark,
+          fontFamily: 'Poppins',
+          ),
         
-        
-        ),
-    );
+        home: const NotesView(),
+      
+      
+      );
   }
 }

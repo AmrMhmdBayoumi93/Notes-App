@@ -8,6 +8,12 @@ import 'package:notesapp/constants.dart';
 import 'package:notesapp/cubits/add_note_cubit/add_note_state.dart';
 import 'package:notesapp/models/note_model.dart';
 
+    // 
+    
+    //2- Create Cubit
+    //3- Create Function
+
+
   class   AddNoteCubit extends Cubit<AddNoteState>{   // <Parent State>
     AddNoteCubit() : super(AddNoteInitial());
 

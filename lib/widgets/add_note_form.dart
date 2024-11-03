@@ -97,11 +97,6 @@ String? title;
                if(formKey.currentState!.validate()){
                 formKey.currentState!.save();
 
- log('before make NullCheck');
-
-              // Null Check: Before creating the NoteModel, check that both title and subTitle are not null.
-              
-                  log('Null check OK');
 
               var noteModel=NoteModel(
                 title: title?? '',         // handle nulll
@@ -114,14 +109,16 @@ String? title;
                 log('we have create model OK');
                  log('title is ${noteModel.title}');
 
-                 log('title is ${noteModel.subTitle}');
+                 log('subTitle is ${noteModel.subTitle}');
  
-                // trigger AddNoteCubit
+                //6-Trigger AddNoteCubit by  BlocProvider.of<AddNoteCubit>(context)
+                  
+                  
                   BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
              log('trigger AddNoteCubit OK') ;
 
                 }
-
+             
 
 
                 else{
