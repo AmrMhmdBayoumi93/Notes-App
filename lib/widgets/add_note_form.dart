@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notesapp/cubits/add_note_cubit/add_note_cubit.dart';
+import 'package:notesapp/cubits/add_note_cubit/add_note_state.dart';
 import 'package:notesapp/models/note_model.dart';
 import 'package:notesapp/widgets/custom_button.dart';
 import 'package:notesapp/widgets/custom_textfield.dart';
@@ -91,45 +92,53 @@ String? title;
       
            
            
-            CustomButton(
-              onTap: (){
+            BlocBuilder<AddNoteCubit, AddNoteState>(
+              builder: (context, state) {
+                return CustomButton(
+                          onTap: (){
 
-               if(formKey.currentState!.validate()){
-                formKey.currentState!.save();
+                      isLoading:state is AddNoteLoading ? true:false;
+              // isLoading:true;
 
 
-              var noteModel=NoteModel(
-                title: title?? '',         // handle nulll
-                subTitle: subTitle?? '', // handle nulll
-                date: DateTime.now().toString(),
-                color: Colors.blue.value,
-                
-                );
-
-                log('we have create model OK');
-                 log('title is ${noteModel.title}');
-
-                 log('subTitle is ${noteModel.subTitle}');
- 
-                //6-Trigger AddNoteCubit by  BlocProvider.of<AddNoteCubit>(context)
-                  
-                  
-                  BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
-             log('trigger AddNoteCubit OK') ;
-
-                }
+              
+                           if(formKey.currentState!.validate()){
+                            formKey.currentState!.save();
+            
+            
+                          var noteModel=NoteModel(
+                            title: title?? '',         // handle nulll
+                            subTitle: subTitle?? '', // handle nulll
+                            date: DateTime.now().toString(),
+                            color: Colors.blue.value,
+                            
+                            );
+            
+                            log('we have create model OK');
+                             log('title is ${noteModel.title}');
+            
+                             log('subTitle is ${noteModel.subTitle}');
              
-
-
-                else{
-                autoValidateMode =AutovalidateMode.always;
-
-                setState(() {
-                  
-                });
-              
-               }
-              
+                            //6-Trigger AddNoteCubit by  BlocProvider.of<AddNoteCubit>(context)
+                              BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+                              
+                         log('trigger AddNoteCubit OK') ;
+            
+                            }
+                         
+            
+            
+                            else{
+                            autoValidateMode = AutovalidateMode.always;
+            
+                            setState(() {
+                              
+                            });
+                          
+                           }
+                          
+                          },
+                        );
               },
             ),
       

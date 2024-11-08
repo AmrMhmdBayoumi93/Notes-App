@@ -2,7 +2,8 @@
   // 1- Create States
   
 
-//
+  //abstract class
+  //class
 abstract class AddNoteState {}       // parent State
 
 

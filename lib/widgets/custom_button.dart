@@ -5,7 +5,10 @@ import 'package:notesapp/constants.dart';
 
 
 class CustomButton extends StatelessWidget {
-   CustomButton({super.key,this.onTap});
+
+  bool isLoading;
+   CustomButton({super.key,this.onTap,this.isLoading=false});
+
 void Function()? onTap;
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,15 @@ void Function()? onTap;
         color: kPrimaryColor,
         borderRadius: BorderRadius.circular(10)
       ),
-        child: const Center(child: 
+        child:isLoading ==true ? SizedBox(
+           width:24,
+          height:24,
+          child: CircularProgressIndicator(
+            color: Colors.black,
+           
+          ),
+        )
+        : const Center(child: 
         Text('Add', 
         style: TextStyle( 
           color: Colors.black,

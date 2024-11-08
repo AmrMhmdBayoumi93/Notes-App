@@ -16,7 +16,7 @@ class AddNoteBottomSheet extends StatelessWidget {
 
 
 //4- Provide the AddNoteCubit to the widget tree by MultiBlocProvider() or BlocProvider()
-      // or use BlocProvider () in the Screen where u will use the AddNoteCubit() cubit
+      // note  use BlocProvider () in the Screen where u will use the AddNoteCubit() cubit
       // to save Resources
       // 
  
@@ -27,61 +27,65 @@ class AddNoteBottomSheet extends StatelessWidget {
             
               // width: double.infinity,
               width: MediaQuery.of(context).size.width,
-                    child:  Padding(
-            
-                      padding: EdgeInsets.symmetric(horizontal: 16.0),
-                      child:
-            
-                        //extract  Column AddNoteForm () is done
-                   
-                      // 5- Integrate Cubit with BlocConsumer or BlocBuilder
-                       BlocConsumer<AddNoteCubit, AddNoteState>(
-                      
-                         builder: (context, state) {
-                           return ModalProgressHUD(
-                            inAsyncCall: state is AddNoteLoading?true:false,
-                                 
-                           child: SingleChildScrollView(
-                            child: AddNoteForm()));
-                         },
-             
-                         ////  ////      ////  ////  ////  ////  ////
-                         listener: (context, state) {
-                          
-                           //Handle fail state
-                          if (state is AddNoteFailure){
-                            print('failed ${state.errorMessage}');
-                             log('success ${state.errorMessage}');
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
+
+                    child:  BlocConsumer<AddNoteCubit, AddNoteState>(
+
+                      ///
+                      ///
+                           listener: (context, state) {
+                       
+                        //Handle fail state
+                       if (state is AddNoteFailure){
+                         print('failed ${state.errorMessage}');
+                          log('success ${state.errorMessage}');
+                         ScaffoldMessenger.of(context).showSnackBar(
+                           SnackBar(
+                              backgroundColor:Colors.red,
+                             content: Text('${state.errorMessage}'))
+                         );
+                       }
+                     
+                               ////  ////  ////  ////  ////  ////
                                 
-                                content: Text('${state.errorMessage}'))
-                            );
-                          }
-                        
-                                  ////  ////  ////  ////  ////  ////
-            
-            
-                           //success state
-                           if(state is AddNoteSuccess){
-            
-                             Navigator.pop(context);
-                              log('success ${state.successMessage}');
-                              ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text('${state.successMessage}'))
-                            );
-                           }
-            
-            
-                       
-                       
-                         },
-                        
-                       ),
-            
-            
-                       
+                                
+                        //success state
+                        if(state is AddNoteSuccess){
+                                
+                          Navigator.pop(context);
+                           log('success ${state.successMessage}');
+                           ScaffoldMessenger.of(context).showSnackBar(
+                           SnackBar(
+                            backgroundColor:Colors.green,
+                             content: Text('${state.successMessage}'))
+                         );
+                        }
+                                
+                                
+                    
+                    
+                      },                
+                     
+
+
+                         
+                      builder:(context,state){
+                      return AbsorbPointer(
+                        absorbing: state is AddNoteLoading ? true : false,
+                        child: SizedBox(
+                              height: 550,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                              child: SingleChildScrollView(
+                               child: AddNoteForm()),
+                            ),
+                          ),
+                      );
+                  
+                      }
+                                 
+                      ////  ////      ////  ////  ////  ////  ////
+                     
+                     
                     ),
              ),
       );
