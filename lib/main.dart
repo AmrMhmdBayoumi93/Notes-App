@@ -12,6 +12,7 @@ void main() async {
   // Initialize Hive and register the adapter
   
   await Hive.initFlutter();// Initialize Hive
+  
   Hive.registerAdapter(NoteModelAdapter()); // Register the adapter first
 
   // then Now open the box
