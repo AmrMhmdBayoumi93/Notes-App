@@ -13,26 +13,20 @@ import 'package:notesapp/models/note_model.dart';
 class NotesCubit extends Cubit<NotesState> {
       NotesCubit() : super(NotesInitial());
 
+
+  List<NoteModel> ?notes ;     // notes stored in cubit not SuccessNoteState
+
       void fetchAllNotes() {
 
-         try {
-
+         
    var box= Hive.box<NoteModel>(kNotesBox);
-      List<NoteModel> notes = box.values.toList();
+     notes = box.values.toList();
 
-  emit(NotesSuccess(notes));
+ 
     log('done Successfully');
+ 
   }   
 
-  
-  catch (e) {
-    emit(NotesFailure('message: ${e.toString()}'));
-     log('sorry ,Failed to add note');
-}
-
-
-   
-      }
 
 
       
