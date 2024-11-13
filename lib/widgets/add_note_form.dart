@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:notesapp/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notesapp/cubits/add_note_cubit/add_note_state.dart';
 import 'package:notesapp/models/note_model.dart';
@@ -104,12 +105,17 @@ String? title;
               
                            if(formKey.currentState!.validate()){
                             formKey.currentState!.save();
-            
-            
+
+                            // for formatted date  use DateFormat(pattern).format (currentDate)   
+                            // after install intl 0.19.0  package
+
+                           var currentDate=DateTime.now();
+                        var formattedcurrentDate= DateFormat('dd-MM-yyyy – HH:mm').format(currentDate);
+
                           var noteModel=NoteModel(
                             title: title?? '',         // handle nulll
                             subTitle: subTitle?? '', // handle nulll
-                            date: DateTime.now().toString(),
+                            date:formattedcurrentDate ,
                             color: Colors.blue.value,
                             
                             );
