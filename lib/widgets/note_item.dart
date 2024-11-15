@@ -25,7 +25,7 @@ final NoteModel note;
         
               //   0xffFFCD79           0xffE7E895         0xff76D6EE
           color:Color(note.color) ,
-
+          
 
 
 
@@ -41,7 +41,15 @@ final NoteModel note;
            contentPadding: EdgeInsets.zero,
             title:  Padding(
               padding: EdgeInsets.only(left: 12.0 ,bottom:12, ),
+
+               // fix it   // title and subtitle are in ListTile do not appear in the screen
+               // done
+                /////////////////////////////////////////
+                ///
+                ////////////////////////////////
               child: Text( note.title,
+                
+
                 style: const TextStyle( 
                   color: Colors.black,
                   fontSize: 26  ,
@@ -65,6 +73,7 @@ final NoteModel note;
             ),
             trailing: IconButton(
               onPressed: (){
+                //delete note 
       
               },         //Icon( Icons.delete,)
               icon: const Icon(FontAwesomeIcons.trash  ,

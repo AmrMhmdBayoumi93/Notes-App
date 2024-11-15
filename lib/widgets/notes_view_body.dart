@@ -13,13 +13,12 @@ class NotesViewBody extends StatefulWidget {
 
 class _NotesViewBodyState extends State<NotesViewBody> {
     void initState() {
-      
+
+//  6- Trigger Cubit by call the method fetchAllNotes()
+      // 
+       BlocProvider.of<NotesCubit>(context).fetchAllNotes();
       super.initState();
       
-      //  6- Trigger Cubit by call the method fetchAllNotes()
-      // 
-
-       BlocProvider.of<NotesCubit>(context).fetchAllNotes();
 
     }
   
