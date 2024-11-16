@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:notesapp/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notesapp/cubits/add_note_cubit/add_note_state.dart';
+import 'package:notesapp/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notesapp/widgets/add_note_form.dart';
 
 class AddNoteBottomSheet extends StatelessWidget {
@@ -28,9 +29,9 @@ class AddNoteBottomSheet extends StatelessWidget {
               // width: double.infinity,
               width: MediaQuery.of(context).size.width,
 
-                    child:  BlocConsumer<AddNoteCubit, AddNoteState>(
+                    child: BlocConsumer<AddNoteCubit, AddNoteState>(
 
-                      ///
+                      /// for listen and rebuild ui
                       ///
                            listener: (context, state) {
                        
@@ -50,8 +51,13 @@ class AddNoteBottomSheet extends StatelessWidget {
                                 
                         //success state
                         if(state is AddNoteSuccess){
-                                
+
+                                  // for refreshing notes after adding new note
+                                  //  trigger fetchAllNotes() method in NotesCubit
+                                  // 
+                          BlocProvider.of<NotesCubit>(context).fetchAllNotes();      
                           Navigator.pop(context);
+
                            log('success ${state.successMessage}');
                            ScaffoldMessenger.of(context).showSnackBar(
                            SnackBar(

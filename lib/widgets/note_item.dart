@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notesapp/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notesapp/models/note_model.dart';
 import 'package:notesapp/views/edit_note_view.dart';
 
@@ -82,7 +84,17 @@ final NoteModel note;
                         note.delete();
 
 
+                                
+              // for refresh notes list in the view after deleting one note in this area
+              // trigger fetchAllNotes() method in NotesCubit 
       
+                      BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+                         ScaffoldMessenger.of(context).showSnackBar(
+                           SnackBar(
+                            backgroundColor:Colors.green,
+                             content: Text('Deleted Note Successfully '))
+                         );     
+
               },
               
                        //Icon( Icons.delete,)
