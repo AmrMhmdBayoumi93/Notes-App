@@ -48,7 +48,7 @@ final NoteModel note;
                 ///
                 ////////////////////////////////
               child: Text( note.title,
-                
+                 
 
                 style: const TextStyle( 
                   color: Colors.black,
@@ -73,9 +73,19 @@ final NoteModel note;
             ),
             trailing: IconButton(
               onPressed: (){
+
                 //delete note 
+                // as NoteModel ext HiveObject
+                    // note is NoteModel Obj
+                    
+                    // ** think twice and write once 
+                        note.delete();
+
+
       
-              },         //Icon( Icons.delete,)
+              },
+              
+                       //Icon( Icons.delete,)
               icon: const Icon(FontAwesomeIcons.trash  ,
               size: 28,
               color: Colors.black,),
