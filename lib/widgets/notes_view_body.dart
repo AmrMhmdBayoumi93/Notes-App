@@ -12,7 +12,8 @@ class NotesViewBody extends StatefulWidget {
 }
 
 class _NotesViewBodyState extends State<NotesViewBody> {
-    void initState() {
+    @override
+  void initState() {
 
 //  6- Trigger Cubit by call the method fetchAllNotes()
       // 

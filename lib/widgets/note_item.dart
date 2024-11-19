@@ -14,7 +14,7 @@ final NoteModel note;
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>const EditNoteView()));
+        Navigator.push(context, MaterialPageRoute(builder: (context)=> EditNoteView(note: note,)));
       },
       child: Container(
       
@@ -42,7 +42,7 @@ final NoteModel note;
             // dont use padding of ListTile()
            contentPadding: EdgeInsets.zero,
             title:  Padding(
-              padding: EdgeInsets.only(left: 12.0 ,bottom:12, ),
+              padding: const EdgeInsets.only(left: 12.0 ,bottom:12, ),
 
                // fix it   // title and subtitle are in ListTile do not appear in the screen
                // done
@@ -76,7 +76,10 @@ final NoteModel note;
             trailing: IconButton(
               onPressed: (){
 
-                //delete note 
+
+                                // delete and refresh
+                                
+                //for delete note 
                 // as NoteModel ext HiveObject
                     // note is NoteModel Obj
                     
@@ -90,9 +93,9 @@ final NoteModel note;
       
                       BlocProvider.of<NotesCubit>(context).fetchAllNotes();
                          ScaffoldMessenger.of(context).showSnackBar(
-                           SnackBar(
+                           const SnackBar(
                             backgroundColor:Colors.green,
-                             content: Text('Deleted Note Successfully '))
+                             content: Text('Note Deleted  Successfully '))
                          );     
 
               },

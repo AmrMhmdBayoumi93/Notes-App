@@ -23,7 +23,7 @@ void Function()? onTap;
         color: kPrimaryColor,
         borderRadius: BorderRadius.circular(10)
       ),
-        child:isLoading ==true ? SizedBox(
+        child:isLoading ==true ? const SizedBox(
            width:24,
           height:24,
           child: CircularProgressIndicator(

@@ -10,16 +10,18 @@ class CustomTextFiled extends StatelessWidget {
   
   final void Function(String?)? onSaved;
   final String? Function(String?)? validator;
+  final void Function(String)? onChanged;
   const CustomTextFiled({
     super.key, required this.labelText,
     required this.hintText,  this.maxLines=1,
-      this.onSaved,this.validator,
+      this.onSaved,this.validator, this.onChanged,
       
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged:onChanged ,
       onSaved: onSaved,
       validator: validator,
 

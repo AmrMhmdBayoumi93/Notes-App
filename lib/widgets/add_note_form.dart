@@ -10,7 +10,7 @@ import 'package:notesapp/widgets/custom_button.dart';
 import 'package:notesapp/widgets/custom_textfield.dart';
 
 class AddNoteForm extends StatefulWidget {
-  const AddNoteForm({Key? key}) : super(key: key);
+  const AddNoteForm({super.key});
 
   @override
   State<AddNoteForm> createState() => _AddNoteFormState();
@@ -46,6 +46,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           ),
           const SizedBox(height: 20),
           CustomTextFiled(
+            
             onSaved: (value) {
               subTitle = value;
             },
@@ -59,8 +60,19 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hintText: 'Content',
             maxLines: 5,
           ),
+        
+          // colors listview horizontal
+          
+
+
+        
           const SizedBox(height: 30),
+        
+        
+        
           BlocBuilder<AddNoteCubit, AddNoteState>(
+          
+          
             builder: (context, state) {
               return CustomButton(
                 isLoading: state is AddNoteLoading,

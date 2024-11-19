@@ -1,9 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:notesapp/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notesapp/cubits/add_note_cubit/add_note_state.dart';
 import 'package:notesapp/cubits/notes_cubit/notes_cubit.dart';
@@ -42,7 +40,7 @@ class AddNoteBottomSheet extends StatelessWidget {
                          ScaffoldMessenger.of(context).showSnackBar(
                            SnackBar(
                               backgroundColor:Colors.red,
-                             content: Text('${state.errorMessage}'))
+                             content: Text(state.errorMessage))
                          );
                        }
                      
@@ -58,11 +56,12 @@ class AddNoteBottomSheet extends StatelessWidget {
                           BlocProvider.of<NotesCubit>(context).fetchAllNotes();      
                           Navigator.pop(context);
 
+
                            log('success ${state.successMessage}');
                            ScaffoldMessenger.of(context).showSnackBar(
                            SnackBar(
                             backgroundColor:Colors.green,
-                             content: Text('${state.successMessage}'))
+                             content: Text(state.successMessage))
                          );
                         }
                                 
@@ -86,7 +85,7 @@ class AddNoteBottomSheet extends StatelessWidget {
                               bottom: MediaQuery.of(context).viewInsets.bottom
                               ),
                               
-                            child: SingleChildScrollView(
+                            child: const SingleChildScrollView(
 
 
                              child: AddNoteForm()),
