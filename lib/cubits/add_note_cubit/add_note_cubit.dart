@@ -2,6 +2,7 @@
 
   import 'dart:developer';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 import 'package:notesapp/constants.dart';
@@ -16,9 +17,11 @@ import 'package:notesapp/models/note_model.dart';
 
   class   AddNoteCubit extends Cubit<AddNoteState>{   // <Parent State>
     AddNoteCubit() : super(AddNoteInitial());
+  
+  Color color =Colors.yellow;
 
   void addNote(NoteModel note)async{
-         
+    note.color=color.value;     
     emit(AddNoteLoading());
 
          try {
