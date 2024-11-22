@@ -19,7 +19,7 @@ class AddNoteBottomSheet extends StatelessWidget {
       // to save Resources
       // 
  
- 
+  
       return  BlocProvider<AddNoteCubit>(
         create: (context) => AddNoteCubit(),
         child: SizedBox(
