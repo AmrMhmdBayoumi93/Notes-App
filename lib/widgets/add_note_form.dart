@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:notesapp/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notesapp/cubits/add_note_cubit/add_note_state.dart';
 import 'package:notesapp/models/note_model.dart';
+import 'package:notesapp/widgets/colors_list_view.dart';
 import 'package:notesapp/widgets/custom_button.dart';
 import 'package:notesapp/widgets/custom_textfield.dart';
 
@@ -31,6 +32,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
         children: [
           const SizedBox(height: 40),
           CustomTextFiled(
+                                              // onSaved with validator
             onSaved: (value) {
               title = value;
             },
@@ -60,10 +62,31 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hintText: 'Content',
             maxLines: 5,
           ),
+        //////////////////////////////////////////////////////////
         
-          // colors listview horizontal
-          
 
+          // colors listview horizontal
+
+   const SizedBox(height: 20),
+ 
+ 
+    ColorsListView(),
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////
 
         
           const SizedBox(height: 30),
@@ -111,3 +134,20 @@ class _AddNoteFormState extends State<AddNoteForm> {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
