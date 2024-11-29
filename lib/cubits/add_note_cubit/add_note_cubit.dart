@@ -18,9 +18,9 @@ import 'package:notesapp/models/note_model.dart';
   class   AddNoteCubit extends Cubit<AddNoteState>{   // <Parent State>
     AddNoteCubit() : super(AddNoteInitial());
   
-  Color color =Colors.yellow;
+  Color color =Colors.yellow;   //def value
 
-  void addNote(NoteModel note)async{
+  void addNote(NoteModel note) async {
     note.color=color.value;     
     emit(AddNoteLoading());
 

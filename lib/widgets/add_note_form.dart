@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:notesapp/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notesapp/cubits/add_note_cubit/add_note_state.dart';
 import 'package:notesapp/models/note_model.dart';
-import 'package:notesapp/widgets/colors_list_view.dart';
+import 'package:notesapp/widgets/add_note_colors_list_view.dart';
 import 'package:notesapp/widgets/custom_button.dart';
 import 'package:notesapp/widgets/custom_textfield.dart';
 

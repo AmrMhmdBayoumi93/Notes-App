@@ -4,6 +4,7 @@ import 'package:notesapp/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notesapp/helper/show_message_for_use.dart';
 import 'package:notesapp/models/note_model.dart';
 import 'package:notesapp/widgets/custom_textfield.dart';
+import 'package:notesapp/widgets/edit_note_colors_list.dart';
 
 import 'custom_appbar.dart';
 
@@ -88,12 +89,25 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
    hintText: widget.note.subTitle,
    maxLines: 5,
    ),
-
  
+ 
+ 
+  ////////////////////
+  
+  
+    
+         // Colors List
+          // create EditNoteColorsList 
+
+          const SizedBox(height:3,),
 
 
+        EditNoteColorsList(
+           note:widget.note,
+        ),
 
 
+          لهف
 
 
 
