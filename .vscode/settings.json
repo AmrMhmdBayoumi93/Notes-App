@@ -7,5 +7,6 @@
         "**/.DS_Store": true,
         "**/Thumbs.db": true
     },
-    "explorerExclude.backup": {}
+    "explorerExclude.backup": {},
+    "cmake.sourceDirectory": "D:/IMPORTANT_CODES/Run-track-code/Udemy_learn_th_samy/Flutter_Apps_Projects/NotesApp/linux"
 }

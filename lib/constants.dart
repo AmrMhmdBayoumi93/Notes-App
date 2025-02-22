@@ -1,5 +1,4 @@
 
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
@@ -9,7 +8,7 @@ const kNotesBox ='notesBox';
 
 
         // 7 colors item     
-  final List<Color>colors = const [
+  const List<Color>colors = [
  
   Colors.yellow,
     Color(0xff557F8A),

@@ -1,9 +1,7 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:notesapp/constants.dart';
 import 'package:notesapp/models/note_model.dart';
-import 'package:notesapp/widgets/add_note_colors_list_view.dart';
 import 'package:notesapp/widgets/color_item.dart';
 
 class EditNoteColorsList extends StatefulWidget {

@@ -4,11 +4,12 @@ import 'package:notesapp/constants.dart';
 import 'package:notesapp/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notesapp/models/note_model.dart';
 import 'package:notesapp/simple_bloc_observer.dart';
+import 'package:notesapp/Aanimated_splash_screen.dart';
 import 'package:notesapp/views/notes_view.dart';
   import 'package:hive_flutter/hive_flutter.dart';
 void main() async {
 
-
+  
   // Initialize Hive and register the adapter
   
   await Hive.initFlutter();// Initialize Hive
@@ -46,7 +47,7 @@ class NotesApp extends StatelessWidget {
             fontFamily: 'Poppins',
             ),
           
-          home: const NotesView(),
+          home:  AanimatedSplashScreen (),
         
         
         ),
