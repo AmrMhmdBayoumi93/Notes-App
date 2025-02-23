@@ -5,7 +5,6 @@ import 'package:notesapp/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notesapp/models/note_model.dart';
 import 'package:notesapp/simple_bloc_observer.dart';
 import 'package:notesapp/Aanimated_splash_screen.dart';
-import 'package:notesapp/views/notes_view.dart';
   import 'package:hive_flutter/hive_flutter.dart';
 void main() async {
 
@@ -47,7 +46,7 @@ class NotesApp extends StatelessWidget {
             fontFamily: 'Poppins',
             ),
           
-          home:  AanimatedSplashScreen (),
+          home:  const AanimatedSplashScreen (),
         
         
         ),

@@ -3,7 +3,7 @@ import 'package:lottie/lottie.dart';
 import 'package:notesapp/views/notes_view.dart';
 
 class AanimatedSplashScreen extends StatefulWidget {
-   AanimatedSplashScreen({super.key});
+   const AanimatedSplashScreen({super.key});
 
   @override
   State<AanimatedSplashScreen> createState() => _AanimatedSplashScreenState();
@@ -11,12 +11,13 @@ class AanimatedSplashScreen extends StatefulWidget {
 
 class _AanimatedSplashScreenState extends State<AanimatedSplashScreen> {
 
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(Duration(seconds: 3), () { 
+    Future.delayed(const Duration(seconds: 3), () { 
       Navigator.push(context,MaterialPageRoute(builder: (context){
-        return NotesView();
+        return const NotesView();
       }));
     });
   }
